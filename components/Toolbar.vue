@@ -40,64 +40,63 @@
             searchModel: null,
             search: null,
             distances: [
-            {
-                text: '5 miles',
-                value: 5,
-            },
-            {
-                text: '10 miles',
-                value: 10,
-            },
-            {
-                text: '15 miles',
-                value: 15,
-            },
-            {
-                text: '20 miles',
-                value: 20,
-            },
+                {
+                    text: '5 miles',
+                    value: 5,
+                },
+                {
+                    text: '10 miles',
+                    value: 10,
+                },
+                {
+                    text: '15 miles',
+                    value: 15,
+                },
+                {
+                    text: '20 miles',
+                    value: 20,
+                },
             ],
             prices: [
-            {
-                text: '< $3',
-                value: 3,
-            },
-            {
-                text: '< $5',
-                value: 5,
-            },
-            {
-                text: '< $10',
-                value: 10,
-            },
+                {
+                    text: '< $3',
+                    value: 3,
+                },
+                {
+                    text: '< $5',
+                    value: 5,
+                },
+                {
+                    text: '< $10',
+                    value: 10,
+                },
             ],
         }),
         computed: {
             products() {
-            return this.$store.state.products;
+                return this.$store.state.products;
             },
             radius: {
-            get() {
-                return this.$store.state.radius;
-            },
-            set(val) {
-                this.$store.dispatch('RADIUS_SET', val);
-            }
+                get() {
+                    return this.$store.state.radius;
+                },
+                set(val) {
+                    this.$store.dispatch('RADIUS_SET', val);
+                }
             },
             price: {
-            get() {
-                return this.$store.state.price;
-            },
-            set(val) {
-                this.$store.dispatch('PRICE_SET', val);
-            }
+                get() {
+                    return this.$store.state.price;
+                },
+                set(val) {
+                    this.$store.dispatch('PRICE_SET', val);
+                }
             },
         },
         watch: {
             search(val) {
-            this.$store.dispatch('SEARCH_TERM_SET', val);
+                this.$store.dispatch('SEARCH_TERM_SET', val);
             },
-            
         },
     }
 </script>

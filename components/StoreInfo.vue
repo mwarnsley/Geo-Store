@@ -38,34 +38,34 @@
         },
         data: () => ({
             headers: [
-            {
-                text: 'Name',
-                align: 'left',
-                sortable: true,
-                value: 'name'
-            },
-            {
-                text: 'Price',
-                align: 'left',
-                sortable: true,
-                value: 'name'
-            },
+                {
+                    text: 'Name',
+                    align: 'left',
+                    sortable: true,
+                    value: 'name'
+                },
+                {
+                    text: 'Price',
+                    align: 'left',
+                    sortable: true,
+                    value: 'price'
+                },
             ],
         }),
         computed: {
             activeStore() {
-            return this.$store.state.activeStore || {
-                products: [],
-                address: {},
-            };
+                return this.$store.state.activeStore || {
+                    products: [],
+                    address: {},
+                };
             },
         },
         methods: {
             highlight(product) {
-            return product.name.replace(
-                new RegExp(this.$store.state.searchTerm, "gi"),
-                match => `<span class="highlightText">${match}</span>`
-            );
+                return product.name.replace(
+                    new RegExp(this.$store.state.searchTerm, "gi"),
+                    match => `<span class="highlightText">${match}</span>`
+                );
             },
         },
     }
@@ -73,21 +73,19 @@
 
 <style>
     .highlightText {
-    background: yellow;
+        background: yellow;
     }
-
     .store-name {
-    font-size: x-large;
-    font-weight: bold;
-    margin-top: 0.5em;
-    margin-left: 0.5em;
+        font-size: x-large;
+        font-weight: bold;
+        margin-top: 0.5em;
+        margin-left: 0.5em;
     }
-
     .store-address {
-    font-size: small;
-    text-align: right;
-    margin-top: 0.5em;
-    margin-right: 2.5em;
+        font-size: small;
+        text-align: right;
+        margin-top: 0.5em;
+        margin-right: 2.5em;
     }
 </style>
 
