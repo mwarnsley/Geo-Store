@@ -1,14 +1,15 @@
-const pkg = require('./package')
+const pkg = require('./package');
 
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
 
-const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+require('dotenv').config({ path: 'map.env' });
 
 module.exports = {
   mode: 'spa',
 
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: pkg.name,
     meta: [
@@ -27,47 +28,47 @@ module.exports = {
   },
 
   /*
-  ** Customize the progress-bar color
-  */
+   ** Customize the progress-bar color
+   */
   loading: { color: '#fff' },
 
   /*
-  ** Global CSS
-  */
-  css: [
-    '~/assets/style/app.styl'
-  ],
+   ** Global CSS
+   */
+  css: ['~/assets/style/app.styl'],
 
   /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-    '@/plugins/vuetify'
-  ],
+   ** Plugins to load before mounting the App
+   */
+  plugins: ['@/plugins/vuetify'],
 
   /*
-  ** Nuxt.js modules
-  */
-  modules: [
-  ],
+   ** Nuxt.js modules
+   */
+  modules: [],
 
   /*
-  ** Build configuration
-  */
+   ** Nuxt.js env variables shared amongst the client and server
+   */
+  env: {
+    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY
+  },
+
+  /*
+   ** Build configuration
+   */
   build: {
     transpile: ['vuetify/lib'],
     plugins: [new VuetifyLoaderPlugin()],
     loaders: {
       stylus: {
-        import: ["~assets/style/variables.styl"]
+        import: ['~assets/style/variables.styl']
       }
     },
-    
+
     /*
-    ** You can extend webpack config here
-    */
-    extend(config, ctx) {
-      
-    }
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {}
   }
-}
+};
